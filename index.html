@@ -429,6 +429,7 @@ POPUP -->
         <div class="tg-form-group"><input type="email" placeholder="Email Address" id="tg-femail"></div>
         <div class="tg-form-group"><input type="text" placeholder="Approximate Annual Tax Bill" id="tg-ftax"></div>
         <button class="tg-submit-btn" onclick="submitTaxForm()">Send Me the Guide</button>
+        <div id="tg-err" style="display:none;font-size:12px;color:#c0392b;margin-top:10px;letter-spacing:0.5px;">Please enter your name and email address.</div>
         <div class="tg-form-fine">Your information is never sold or shared.</div>
       </div>
       <div class="tg-success" id="tg-success">
@@ -536,9 +537,13 @@ function subinline(){document.getElementById('inline-wrap').style.display='none'
 function subshop(){alert('You are on the list. We will notify you when the BWF shop goes live.');}
 function openshop(){document.getElementById('shopemail').scrollIntoView({behavior:'smooth'});}
 function submitTaxForm(){
-  var name=document.getElementById('tg-fname').value;
-  var email=document.getElementById('tg-femail').value;
-  if(!name||!email){alert('Please enter your name and email address.');return;}
+  var name=document.getElementById('tg-fname');
+  var email=document.getElementById('tg-femail');
+  var err=document.getElementById('tg-err');
+  name.style.borderColor=(!name.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
+  email.style.borderColor=(!email.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
+  if(!name.value.trim()||!email.value.trim()){err.style.display='block';return;}
+  err.style.display='none';
   document.getElementById('tg-form-wrap').style.display='none';
   document.getElementById('tg-success').classList.add('show');
 }

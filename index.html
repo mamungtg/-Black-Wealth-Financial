@@ -554,16 +554,11 @@ function subpop(){
   formData.append('Email',email.value.trim());
   formData.append('Annual Revenue',tax.value.trim()||'-');
   formData.append('Lead Source','Web Download');
-  $.ajax({url:'https://crm.zoho.com/crm/WebToLeadForm',type:'POST',data:formData,cache:false,contentType:false,processData:false,
-    success:function(){
-      document.getElementById('pf').style.display='none';
-      document.getElementById('psuc').classList.add('show');
-    },
-    error:function(){
-      document.getElementById('pf').style.display='none';
-      document.getElementById('psuc').classList.add('show');
-    }
-  });
+  // Show success immediately
+  document.getElementById('pf').style.display='none';
+  document.getElementById('psuc').classList.add('show');
+  // Send to Zoho silently in background
+  fetch('https://crm.zoho.com/crm/WebToLeadForm',{method:'POST',body:formData,mode:'no-cors'}).catch(function(){});
 }
 function subinline(){
   var name=document.getElementById('iname');
@@ -585,16 +580,11 @@ function subinline(){
   formData.append('Email',email.value.trim());
   formData.append('Annual Revenue',tax.value.trim()||'-');
   formData.append('Lead Source','Web Download');
-  $.ajax({url:'https://crm.zoho.com/crm/WebToLeadForm',type:'POST',data:formData,cache:false,contentType:false,processData:false,
-    success:function(){
-      document.getElementById('inline-wrap').style.display='none';
-      document.getElementById('isuc').classList.add('show');
-    },
-    error:function(){
-      document.getElementById('inline-wrap').style.display='none';
-      document.getElementById('isuc').classList.add('show');
-    }
-  });
+  // Show success immediately
+  document.getElementById('inline-wrap').style.display='none';
+  document.getElementById('isuc').classList.add('show');
+  // Send to Zoho silently in background
+  fetch('https://crm.zoho.com/crm/WebToLeadForm',{method:'POST',body:formData,mode:'no-cors'}).catch(function(){});
 }
 function subshop(){alert('You are on the list. We will notify you when the BWF shop goes live.');}
 function openshop(){document.getElementById('shopemail').scrollIntoView({behavior:'smooth'});}
@@ -618,16 +608,11 @@ function submitTaxForm(){
   formData.append('Email',email.value.trim());
   formData.append('Annual Revenue',tax.value.trim()||'-');
   formData.append('Lead Source','Web Download');
-  $.ajax({url:'https://crm.zoho.com/crm/WebToLeadForm',type:'POST',data:formData,cache:false,contentType:false,processData:false,
-    success:function(){
-      document.getElementById('tg-form-wrap').style.display='none';
-      document.getElementById('tg-success').classList.add('show');
-    },
-    error:function(){
-      document.getElementById('tg-form-wrap').style.display='none';
-      document.getElementById('tg-success').classList.add('show');
-    }
-  });
+  // Show success immediately
+  document.getElementById('tg-form-wrap').style.display='none';
+  document.getElementById('tg-success').classList.add('show');
+  // Send to Zoho silently in background
+  fetch('https://crm.zoho.com/crm/WebToLeadForm',{method:'POST',body:formData,mode:'no-cors'}).catch(function(){});
 }
 function fs(cat,btn){document.querySelectorAll('.sf').forEach(b=>b.classList.remove('act'));btn.classList.add('act');document.querySelectorAll('.shc').forEach(c=>{c.style.display=(cat==='all'||c.getAttribute('data-cat')===cat)?'block':'none';});}
 ir();ic();

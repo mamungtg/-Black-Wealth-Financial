@@ -537,38 +537,99 @@ window.addEventListener('scroll',()=>{if((window.scrollY+window.innerHeight)/doc
 function subpop(){
   var name=document.getElementById('pname');
   var email=document.getElementById('pemail');
+  var tax=document.getElementById('ptax');
   var err=document.getElementById('pop-err');
   name.style.borderColor=(!name.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
   email.style.borderColor=(!email.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
   if(!name.value.trim()||!email.value.trim()){err.style.display='block';return;}
   err.style.display='none';
-  document.getElementById('pf').style.display='none';
-  document.getElementById('psuc').classList.add('show');
+  var formData=new FormData();
+  formData.append('xnQsjsdp','639c3725f96029b969def4f6d49b82d10284fb398ec566d915c882e94def33fe');
+  formData.append('xmIwtLD','809352bab687e2535df04fe82bb6ed818db5891b21987a3cbdef829a2bdc502f1d1efa84bd6d4ec3e3f6578e7fcd040f');
+  formData.append('actionType','TGVhZHM=');
+  formData.append('returnURL','null');
+  formData.append('zc_gad','');
+  formData.append('First Name',name.value.trim());
+  formData.append('Last Name','Lead');
+  formData.append('Email',email.value.trim());
+  formData.append('Annual Revenue',tax.value.trim()||'-');
+  formData.append('Lead Source','Web Download');
+  $.ajax({url:'https://crm.zoho.com/crm/WebToLeadForm',type:'POST',data:formData,cache:false,contentType:false,processData:false,
+    success:function(){
+      document.getElementById('pf').style.display='none';
+      document.getElementById('psuc').classList.add('show');
+    },
+    error:function(){
+      document.getElementById('pf').style.display='none';
+      document.getElementById('psuc').classList.add('show');
+    }
+  });
 }
 function subinline(){
   var name=document.getElementById('iname');
   var email=document.getElementById('iemail');
+  var tax=document.getElementById('itax');
   var err=document.getElementById('inline-err');
   name.style.borderColor=(!name.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
   email.style.borderColor=(!email.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
   if(!name.value.trim()||!email.value.trim()){err.style.display='block';return;}
   err.style.display='none';
-  document.getElementById('inline-wrap').style.display='none';
-  document.getElementById('isuc').classList.add('show');
+  var formData=new FormData();
+  formData.append('xnQsjsdp','639c3725f96029b969def4f6d49b82d10284fb398ec566d915c882e94def33fe');
+  formData.append('xmIwtLD','809352bab687e2535df04fe82bb6ed818db5891b21987a3cbdef829a2bdc502f1d1efa84bd6d4ec3e3f6578e7fcd040f');
+  formData.append('actionType','TGVhZHM=');
+  formData.append('returnURL','null');
+  formData.append('zc_gad','');
+  formData.append('First Name',name.value.trim());
+  formData.append('Last Name','Lead');
+  formData.append('Email',email.value.trim());
+  formData.append('Annual Revenue',tax.value.trim()||'-');
+  formData.append('Lead Source','Web Download');
+  $.ajax({url:'https://crm.zoho.com/crm/WebToLeadForm',type:'POST',data:formData,cache:false,contentType:false,processData:false,
+    success:function(){
+      document.getElementById('inline-wrap').style.display='none';
+      document.getElementById('isuc').classList.add('show');
+    },
+    error:function(){
+      document.getElementById('inline-wrap').style.display='none';
+      document.getElementById('isuc').classList.add('show');
+    }
+  });
 }
 function subshop(){alert('You are on the list. We will notify you when the BWF shop goes live.');}
 function openshop(){document.getElementById('shopemail').scrollIntoView({behavior:'smooth'});}
 function submitTaxForm(){
   var name=document.getElementById('tg-fname');
   var email=document.getElementById('tg-femail');
+  var tax=document.getElementById('tg-ftax');
   var err=document.getElementById('tg-err');
   name.style.borderColor=(!name.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
   email.style.borderColor=(!email.value.trim())?'#c0392b':'rgba(180,137,48,0.2)';
   if(!name.value.trim()||!email.value.trim()){err.style.display='block';return;}
   err.style.display='none';
-  document.getElementById('tg-form-wrap').style.display='none';
-  document.getElementById('tg-success').classList.add('show');
+  var formData=new FormData();
+  formData.append('xnQsjsdp','639c3725f96029b969def4f6d49b82d10284fb398ec566d915c882e94def33fe');
+  formData.append('xmIwtLD','809352bab687e2535df04fe82bb6ed818db5891b21987a3cbdef829a2bdc502f1d1efa84bd6d4ec3e3f6578e7fcd040f');
+  formData.append('actionType','TGVhZHM=');
+  formData.append('returnURL','null');
+  formData.append('zc_gad','');
+  formData.append('First Name',name.value.trim());
+  formData.append('Last Name','Lead');
+  formData.append('Email',email.value.trim());
+  formData.append('Annual Revenue',tax.value.trim()||'-');
+  formData.append('Lead Source','Web Download');
+  $.ajax({url:'https://crm.zoho.com/crm/WebToLeadForm',type:'POST',data:formData,cache:false,contentType:false,processData:false,
+    success:function(){
+      document.getElementById('tg-form-wrap').style.display='none';
+      document.getElementById('tg-success').classList.add('show');
+    },
+    error:function(){
+      document.getElementById('tg-form-wrap').style.display='none';
+      document.getElementById('tg-success').classList.add('show');
+    }
+  });
 }
 function fs(cat,btn){document.querySelectorAll('.sf').forEach(b=>b.classList.remove('act'));btn.classList.add('act');document.querySelectorAll('.shc').forEach(c=>{c.style.display=(cat==='all'||c.getAttribute('data-cat')===cat)?'block':'none';});}
 ir();ic();
-</script></body></html>
+</script><script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=646d5a598663155721f8c90eb7a1880290e8b5ee729971602e44a0b4adf00edc1c9ccfee5df3cb20028d36d33c7a13d2gid6bec7abdfc5d68ece377a95571fb4368b31c415a7dce217dcb0f32a353dc65c8gidb5733ad80bc0ba6b3139435228c65eedd8cb7f06616e8fe97492c6763c097787gid036087fa0a928f2e29fa4d6207447188e343b11a1cd2a96297fd6e52d1c22397&tw=4f922260487ee50e10e8988d63278fb1fa1704c139b1e713784b02a982745de8'></script>
+</body></html>
